@@ -1,0 +1,1 @@
+"""Individual phishing checks."""
