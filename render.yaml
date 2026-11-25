@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: phishlens
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: SAFE_BROWSING_API_KEY
+        sync: false
+      - key: URLHAUS_AUTH_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
