@@ -1,0 +1,57 @@
+Delivered-To: student@utdallas.edu
+Authentication-Results: mx.google.com;
+       spf=fail (google.com: domain of bounce@mailer.example does not designate 198.51.100.23 as permitted sender) smtp.mailfrom=bounce@mailer.example;
+       dkim=none;
+       dmarc=fail (p=REJECT sp=REJECT dis=NONE) header.from=paypal.com
+Return-Path: <bounce@mailer.example>
+From: "PayPal Security" <service@paypal.com>
+Reply-To: resolution-team@mailbox.example
+To: student@utdallas.edu
+Subject: Urgent: Your account will be suspended within 24 hours
+Date: Mon, 23 Nov 2026 08:14:02 -0600
+Message-ID: <a1b2c3@mailer.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY-OUTER"
+
+--BOUNDARY-OUTER
+Content-Type: multipart/alternative; boundary="BOUNDARY-INNER"
+
+--BOUNDARY-INNER
+Content-Type: text/plain; charset="utf-8"
+
+Dear Customer,
+
+We detected unusual activity on your PayPal account. Your account will be suspended
+within 24 hours unless you verify your account immediately.
+
+Verify now: https://www.paypal.com/signin
+
+Failure to verify will result in permanent loss of access. Please confirm your
+password and payment method on the secure page.
+
+PayPal Security Team
+
+--BOUNDARY-INNER
+Content-Type: text/html; charset="utf-8"
+
+<html><body style="font-family:Arial">
+<p>Dear Customer,</p>
+<p>We detected <b>unusual activity</b> on your PayPal account. Your account will be suspended
+within 24 hours unless you verify your account immediately.</p>
+<p><a href="http://paypal.com.account-verify.example/signin?id=8832">https://www.paypal.com/signin</a></p>
+<p>Failure to verify will result in permanent loss of access. Please confirm your
+password and payment method on the secure page.</p>
+<p>Or use our backup server: <a href="http://192.0.2.44/secure/update">Secure Update Portal</a></p>
+<p>PayPal Security Team</p>
+</body></html>
+
+--BOUNDARY-INNER--
+
+--BOUNDARY-OUTER
+Content-Type: text/html; name="Account_Statement.pdf.html"
+Content-Disposition: attachment; filename="Account_Statement.pdf.html"
+Content-Transfer-Encoding: base64
+
+PGh0bWw+PGJvZHk+PGgxPlNpZ24gaW4gdG8gdmlldyB5b3VyIHN0YXRlbWVudDwvaDE+PC9ib2R5PjwvaHRtbD4=
+
+--BOUNDARY-OUTER--

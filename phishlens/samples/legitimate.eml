@@ -1,0 +1,39 @@
+Delivered-To: student@utdallas.edu
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@utdallas.edu header.s=selector1;
+       spf=pass (google.com: domain of careercenter@utdallas.edu designates 203.0.113.10 as permitted sender) smtp.mailfrom=careercenter@utdallas.edu;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=utdallas.edu
+Return-Path: <careercenter@utdallas.edu>
+From: "UT Dallas Career Center" <careercenter@utdallas.edu>
+To: student@utdallas.edu
+Subject: Spring 2027 Career Fair: employer list now available
+Date: Tue, 24 Nov 2026 10:02:44 -0600
+Message-ID: <cc-20261124@utdallas.edu>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="BOUNDARY-CC"
+
+--BOUNDARY-CC
+Content-Type: text/plain; charset="utf-8"
+
+Hi Temoc,
+
+The employer list for the Spring 2027 Career Fair is now posted. Browse companies,
+see which majors they're hiring, and plan your day before the fair.
+
+View the employer list: https://career.utdallas.edu/career-fair
+
+See you there,
+UT Dallas Career Center
+
+--BOUNDARY-CC
+Content-Type: text/html; charset="utf-8"
+
+<html><body>
+<p>Hi Temoc,</p>
+<p>The employer list for the Spring 2027 Career Fair is now posted. Browse companies,
+see which majors they're hiring, and plan your day before the fair.</p>
+<p><a href="https://career.utdallas.edu/career-fair">View the employer list</a></p>
+<p>See you there,<br>UT Dallas Career Center</p>
+</body></html>
+
+--BOUNDARY-CC--

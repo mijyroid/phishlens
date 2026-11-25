@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhishLens · Phishing Email Analyzer</title>
+  <meta name="description" content="Paste a suspicious email and get an explainable phishing risk report.">
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img src="/static/favicon.svg" alt="" width="28" height="28">
+        <span>PhishLens</span>
+      </a>
+      <a class="header-link" href="/docs">API docs</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Is this email phishing?</h1>
+      <p>Paste the email's original source or upload a <code>.eml</code> file. PhishLens checks the
+        sender's authentication, spoofing tricks, deceptive links and risky attachments, then explains
+        what it found in plain English.</p>
+    </section>
+
+    <section class="card input-card" aria-label="Email input">
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" aria-selected="true" data-tab="paste">Paste source</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="upload">Upload .eml</button>
+      </div>
+
+      <div class="tab-panel" id="panel-paste">
+        <label class="sr-only" for="raw">Email source</label>
+        <textarea id="raw" spellcheck="false"
+          placeholder="Paste the full email source here, including headers.&#10;&#10;Gmail: open the email → ⋮ → Show original → Copy to clipboard&#10;Outlook: open the email → … → View → View message source"></textarea>
+      </div>
+
+      <div class="tab-panel hidden" id="panel-upload">
+        <label class="dropzone" id="dropzone">
+          <input type="file" id="file" accept=".eml,message/rfc822,text/plain">
+          <strong>Choose an .eml file</strong>
+          <span id="file-name">or drag it here</span>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="analyze">Analyze email</button>
+        <span class="spacer"></span>
+        <span class="muted small">Try a sample:</span>
+        <button class="btn ghost" data-sample="phishing">Phishing</button>
+        <button class="btn ghost" data-sample="legitimate">Legitimate</button>
+      </div>
+      <p class="privacy small">🔒 Emails are analyzed in memory and never stored. PhishLens never opens the links it finds.</p>
+      <p class="error hidden" id="error" role="alert"></p>
+    </section>
+
+    <section id="results" class="hidden" aria-live="polite">
+      <div class="card verdict-card" id="verdict-card">
+        <div class="gauge" id="gauge"><span id="score">0</span><small>/100</small></div>
+        <div class="verdict-text">
+          <p class="verdict-label" id="verdict-label"></p>
+          <p id="explanation"></p>
+          <p class="muted small" id="explanation-source"></p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2>Email</h2>
+          <dl class="summary" id="summary"></dl>
+          <div class="auth" id="auth"></div>
+        </div>
+        <div class="card">
+          <h2>Threat intelligence</h2>
+          <ul class="intel" id="intel"></ul>
+          <h2 class="mt">Attachments</h2>
+          <ul class="attachments" id="attachments"></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Findings <span class="count" id="finding-count"></span></h2>
+        <ul class="findings" id="findings"></ul>
+      </div>
+
+      <div class="card">
+        <h2>Links <span class="count" id="link-count"></span></h2>
+        <div class="table-wrap">
+          <table class="links">
+            <thead><tr><th>Destination</th><th>Shown as</th><th>Flags</th></tr></thead>
+            <tbody id="links"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer small muted">
+    PhishLens is an educational tool. Automated checks can miss attacks, so when in doubt, contact the
+    sender through a channel you already trust.
+  </footer>
+</body>
+</html>
