@@ -237,6 +237,17 @@ async function loadSample(name) {
   }
 }
 
+function setGuideApp(app) {
+  document.querySelectorAll(".guide-tab").forEach((btn) => {
+    const on = btn.dataset.app === app;
+    btn.classList.toggle("active", on);
+    btn.setAttribute("aria-selected", String(on));
+  });
+  document.querySelectorAll(".guide-panel").forEach((panel) => {
+    panel.classList.toggle("hidden", panel.id !== `guide-${app}`);
+  });
+}
+
 function pickFile(file) {
   selectedFile = file || null;
   $("file-name").textContent = selectedFile ? selectedFile.name : "or drag it here";
@@ -246,6 +257,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".tab").forEach((btn) => btn.addEventListener("click", () => setTab(btn.dataset.tab)));
   document.querySelectorAll("[data-sample]").forEach((btn) =>
     btn.addEventListener("click", () => loadSample(btn.dataset.sample))
+  );
+  document.querySelectorAll(".guide-tab").forEach((btn) =>
+    btn.addEventListener("click", () => setGuideApp(btn.dataset.app))
   );
   $("analyze").addEventListener("click", runAnalysis);
   $("raw").addEventListener("keydown", (e) => {

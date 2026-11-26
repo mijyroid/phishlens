@@ -37,7 +37,7 @@
       <div class="tab-panel" id="panel-paste">
         <label class="sr-only" for="raw">Email source</label>
         <textarea id="raw" spellcheck="false"
-          placeholder="Paste the full email source here, including headers.&#10;&#10;Gmail: open the email → ⋮ → Show original → Copy to clipboard&#10;Outlook: open the email → … → View → View message source"></textarea>
+          placeholder="Paste the email's source here.&#10;&#10;Not sure how to get it? Open &quot;How do I get an email's source?&quot; below for step-by-step help."></textarea>
       </div>
 
       <div class="tab-panel hidden" id="panel-upload">
@@ -55,8 +55,78 @@
         <button class="btn ghost" data-sample="phishing">Phishing</button>
         <button class="btn ghost" data-sample="legitimate">Legitimate</button>
       </div>
-      <p class="privacy small">🔒 Emails are analyzed in memory and never stored. PhishLens never opens the links it finds.</p>
+      <p class="privacy small">Emails are analyzed in memory and never stored. PhishLens never opens the links it finds.</p>
       <p class="error hidden" id="error" role="alert"></p>
+
+      <details class="guide" id="guide">
+        <summary>
+          <span class="guide-title">How do I get an email's source?</span>
+          <span class="guide-sub">Step-by-step help for Gmail, Outlook, Apple Mail and Yahoo</span>
+        </summary>
+
+        <div class="guide-body">
+          <p>Every email has hidden details, called its <b>source</b>, that show who really sent it.
+            Here's how to copy them. Pick the email service you use:</p>
+
+          <div class="guide-tabs" role="tablist" aria-label="Email service">
+            <button class="guide-tab active" role="tab" aria-selected="true" aria-controls="guide-gmail" data-app="gmail">Gmail</button>
+            <button class="guide-tab" role="tab" aria-selected="false" aria-controls="guide-outlook" data-app="outlook">Outlook</button>
+            <button class="guide-tab" role="tab" aria-selected="false" aria-controls="guide-apple" data-app="apple">Apple Mail</button>
+            <button class="guide-tab" role="tab" aria-selected="false" aria-controls="guide-yahoo" data-app="yahoo">Yahoo Mail</button>
+          </div>
+
+          <div class="guide-panel" id="guide-gmail" role="tabpanel">
+            <ol class="steps">
+              <li>Open the email in Gmail on a computer.</li>
+              <li>Next to the <b>Reply</b> arrow at the top right of the email, click the three dots <span class="key">⋮</span>.</li>
+              <li>Click <b>Show original</b>. A new tab opens with a lot of text. That's normal.</li>
+              <li>Click the blue <b>Copy to clipboard</b> button.</li>
+              <li>Come back to this page, click in the box above, and paste: press <span class="key">⌘</span> + <span class="key">V</span> on a Mac or <span class="key">Ctrl</span> + <span class="key">V</span> on Windows.</li>
+              <li>Click <b>Analyze email</b>.</li>
+            </ol>
+            <p class="tip"><b>Prefer a file?</b> In step 3, click <b>Download message</b> instead. Then open the <b>Upload .eml</b> tab and choose the file you downloaded.</p>
+          </div>
+
+          <div class="guide-panel hidden" id="guide-outlook" role="tabpanel">
+            <ol class="steps">
+              <li>Open the email in Outlook on the web (outlook.com) or the new Outlook app.</li>
+              <li>Click the three dots <span class="key">…</span> at the top right of the email.</li>
+              <li>Choose <b>View</b>, then <b>View message source</b>. A window opens with a lot of text.</li>
+              <li>Click inside that window, select everything with <span class="key">⌘</span> + <span class="key">A</span> (Mac) or <span class="key">Ctrl</span> + <span class="key">A</span> (Windows), then copy with <span class="key">⌘</span> + <span class="key">C</span> or <span class="key">Ctrl</span> + <span class="key">C</span>.</li>
+              <li>Come back to this page, click in the box above, and paste with <span class="key">⌘</span> + <span class="key">V</span> or <span class="key">Ctrl</span> + <span class="key">V</span>.</li>
+              <li>Click <b>Analyze email</b>.</li>
+            </ol>
+          </div>
+
+          <div class="guide-panel hidden" id="guide-apple" role="tabpanel">
+            <ol class="steps">
+              <li>Open the email in the Mail app on your Mac.</li>
+              <li>In the menu bar at the very top of the screen, click <b>View</b>, then <b>Message</b>, then <b>Raw Source</b>.</li>
+              <li>Select everything with <span class="key">⌘</span> + <span class="key">A</span>, then copy with <span class="key">⌘</span> + <span class="key">C</span>.</li>
+              <li>Come back to this page, click in the box above, and paste with <span class="key">⌘</span> + <span class="key">V</span>.</li>
+              <li>Click <b>Analyze email</b>.</li>
+            </ol>
+            <p class="tip"><b>Prefer a file?</b> With the email open, choose <b>File</b> → <b>Save As…</b>, set <b>Format</b> to <b>Raw Message Source</b>, and save it. Then choose that file on the <b>Upload .eml</b> tab.</p>
+          </div>
+
+          <div class="guide-panel hidden" id="guide-yahoo" role="tabpanel">
+            <ol class="steps">
+              <li>Open the email in Yahoo Mail on a computer.</li>
+              <li>Click the three dots <span class="key">…</span> (More) in the toolbar above the email.</li>
+              <li>Click <b>View raw message</b>. A new tab opens with a lot of text.</li>
+              <li>Select everything with <span class="key">⌘</span> + <span class="key">A</span> (Mac) or <span class="key">Ctrl</span> + <span class="key">A</span> (Windows), then copy with <span class="key">⌘</span> + <span class="key">C</span> or <span class="key">Ctrl</span> + <span class="key">C</span>.</li>
+              <li>Come back to this page, click in the box above, and paste with <span class="key">⌘</span> + <span class="key">V</span> or <span class="key">Ctrl</span> + <span class="key">V</span>.</li>
+              <li>Click <b>Analyze email</b>.</li>
+            </ol>
+          </div>
+
+          <div class="guide-notes">
+            <p><b>On a phone?</b> Phone email apps usually can't show the source. Use a computer, or ask someone you trust to check the email for you.</p>
+            <p><b>Still stuck?</b> You can paste just the words of the email instead. PhishLens will still check the links and wording, but it can't tell who really sent it.</p>
+            <p><b>While you check:</b> don't click any links or open any attachments in the email.</p>
+          </div>
+        </div>
+      </details>
     </section>
 
     <section id="results" class="hidden" aria-live="polite">

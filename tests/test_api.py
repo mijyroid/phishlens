@@ -23,6 +23,13 @@ def test_index_has_security_headers(client):
     assert res.headers["x-frame-options"] == "DENY"
 
 
+def test_index_includes_email_source_guide(client):
+    html = client.get("/").text
+    assert "How do I get an email's source?" in html
+    for app in ("gmail", "outlook", "apple", "yahoo"):
+        assert f'id="guide-{app}"' in html
+
+
 def test_analyze_text(client, phishing_raw):
     res = client.post("/api/analyze", json={"raw": phishing_raw})
     assert res.status_code == 200
