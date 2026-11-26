@@ -16,8 +16,6 @@ PhishLens tells you whether an email is phishing **and shows you why**. Paste an
 
 https://github.com/user-attachments/assets/ec4ce3cb-e8fc-4b0f-83dc-3d9ddb7703bc
 
-![PhishLens analyzing a phishing email and a legitimate email](docs/demo.gif)
-
 _Analyzing the built-in phishing sample (100/100) and a legitimate university email (0/100), then uploading a fake USPS delivery scam as an `.eml` file (100/100)._
 
 ## Why I built this
