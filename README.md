@@ -14,8 +14,7 @@ PhishLens tells you whether an email is phishing **and shows you why**. Paste an
 
 ## Demo
 
-<!-- To get a playable video like this one, edit this README on GitHub, drag docs/demo.mp4
-     into the editor, and paste the link GitHub generates on the line below. -->
+https://github.com/user-attachments/assets/ec4ce3cb-e8fc-4b0f-83dc-3d9ddb7703bc
 
 ![PhishLens analyzing a phishing email and a legitimate email](docs/demo.gif)
 
